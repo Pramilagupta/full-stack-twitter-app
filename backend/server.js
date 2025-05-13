@@ -13,14 +13,6 @@ import cors from "cors";
 
 dotenv.config();
 // app.use(cors({ origin: process.env.PORT, credentials: true }));
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://full-stack-twitter-app.vercel.app",
-    ],
-  })
-);
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -32,7 +24,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // console.log(process.env.MONGO_URI);
-
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://full-stack-twitter-app.vercel.app",
+    ],
+  })
+);
 // middlewares
 app.use(express.json({ limit: "5mb" })); // to parse req.body
 //  limit shouln't be too high to prevent DOS
