@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://fast-temple-34808-1abd3fc375e5.herokuapp.com/api/:path*"
+    }
+  ]
+}
