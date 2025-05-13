@@ -9,8 +9,18 @@ import postRoutes from "./routes/post.route.js";
 import notificationRoutes from "./routes/notification.route.js";
 
 import connectMongoDB from "./db/connectMongoDB.js";
+import cors from "cors";
 
 dotenv.config();
+// app.use(cors({ origin: process.env.PORT, credentials: true }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://full-stack-twitter-app.vercel.app",
+    ],
+  })
+);
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
